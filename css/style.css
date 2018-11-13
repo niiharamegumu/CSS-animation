@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+/* 正規表現 */
+[class^="hover-"] {
+	background: #f00;
+	color: #fff;
+	display: inline-block;
+	padding: 1em;
+	text-decoration: none;
+	-webkit-font-smoothing: antialiased;
+}
+
+.hover-grow {
+	/* アニメーションの定義 */
+	-webkit-transition-duration: .3s; 
+	transition-duration: .3s;
+	/* アニメーションさせる対象のプロパティ */
+	-webkit-transition-property: transform;
+	transition-property: transform;
+}
+.hover-grow:hover {
+	/* 要素の変形 */
+	-webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+@keyframes hover-pulse {
+	/* 任意のタイミングの設定 */
+	50% {
+		-webkit-transform: scale(1.1);
+		transform: scale(1.1);
+	}
+	75% {
+		-webkit-transform: scale(.9);
+		transform: scale(.9);
+	}
+}
+.hover-pulse:hover {
+	/* キーフレーム名の指定 */
+	-webkit-animation-name: hover-pulse;
+	animation-name: hover-pulse;
+	/* アニメーション一回分の時間の長さ */
+	-webkit-animation-duration: .5s;
+	animation-duration: .5s;
+	/* アニメーションのタイミング・進行割合を指定する */
+	-webkit-timing-function: linear;
+	timing-function: linear;
+	/* アニメーションの繰り返し回数を指定する */
+	-webkit-animation-iteration-count: infinite;
+	animation-iteration-count: infinite;
+}
+
+@keyframes hover-push {
+	/* 任意のタイミングの設定 */
+	20% {
+		-webkit-transform: scale(.8);
+		transform: scale(.8);
+	}
+}
+.hover-push:hover {
+	/* キーフレーム名の指定 */
+	-webkit-animation-name: hover-push;
+	animation-name: hover-push;
+	/* アニメーション一回分の時間の長さ */
+	-webkit-animation-duration: .4s;
+	animation-duration: .4s;
+	/* アニメーションのタイミング・進行割合を指定する */
+	-webkit-timing-function: linear;
+	timing-function: linear;
+	/* アニメーションの繰り返し回数を指定する */
+	-webkit-animation-iteration-count: 1;
+	animation-iteration-count: 1;
+}
+
+.hover-fade {
+	-webkit-transition-duration: .5s; 
+	transition-duration: .5s;
+	-webkit-transition-property: background-color;
+	transition-property: background-color;	
+}
+.hover-fade:hover {
+	background-color: #00e;
+}
+
+.hover-sweep {
+	position: relative;
+	-webkit-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-transition-duration: 1s; 
+	transition-duration: 1s;
+	-webkit-transition-property: color;
+	transition-property: color;		
+}
+.hover-sweep::before {
+	background: #00f;
+	bottom: 0;
+	content: "";
+	left: 0;
+	position: absolute;
+	right: 0;
+	top:0;
+	-webkit-transition-property: transform;
+	transition-property: transform;
+	-webkit-transition-duration: 1s; 
+	transition-duration: 1s;
+	-webkit-timing-function: ease-out;
+	timing-function: ease-out;
+	z-index: -1;
+}
+.sweep-to-right::before {
+	-webkit-transform: scaleY(0);	
+	transform: scaleY(0);	
+	/* 始点を決める */
+	-webkit-transform-origin: 50% 0;
+	transform-origin: 50% 0;
+}
+.sweep-to-right:hover::before {
+	-webkit-transform: scaleY(1);	
+	transform: scaleY(1);	
+}

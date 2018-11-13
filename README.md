@@ -1,2 +1,2 @@
 # CSS-animation
-css-animation
+Practice css-animation.
